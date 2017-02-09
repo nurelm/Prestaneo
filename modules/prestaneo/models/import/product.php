@@ -298,7 +298,10 @@ class ImportProduct extends ImportAbstract
                     $categoryCodes = explode(',', $data[$this->_offsets['special']['categories']]);
 
                     foreach ($categoryCodes as $categoryCode) {
-                        $categoryId = (int)MappingCodeCategories::getIdByCode($categoryCode);
+                        // Switch to straight category ID mapping
+                        //$categoryId = (int)MappingCodeCategories::getIdByCode($categoryCode);
+                        $categoryId = $categoryCode;
+
                         if ($categoryId > 0) {
                             $categories[] = $categoryId;
                         } else {
